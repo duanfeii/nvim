@@ -16,14 +16,14 @@ return {
     lazy = false,
     version = false, -- set this if you want to always pull the latest change
     opts = {
-      -- add any opts here  
-      provider = "gemini", 
+      -- add any opts here
+      provider = "gemini",
       gemini = {
         endpoint = "https://generativelanguage.googleapis.com/v1beta/models",
         model = "gemini-2.0-flash", -- 您想要的模型（或使用 gpt-4o 等）
-        timeout = 30000, -- 超时时间（毫秒），增加此值以适应推理模型
+        timeout = 30000,            -- 超时时间（毫秒），增加此值以适应推理模型
         temperature = 0,
-        max_tokens = 8192, -- 增加此值以包括推理模型的推理令牌
+        max_tokens = 8192,          -- 增加此值以包括推理模型的推理令牌
         --reasoning_effort = "medium", -- low|medium|high，仅用于推理模型
       },
     },
@@ -35,9 +35,9 @@ return {
       "nvim-lua/plenary.nvim",
       "MunifTanjim/nui.nvim",
       --- The below dependencies are optional,
-      "hrsh7th/nvim-cmp", -- autocompletion for avante commands and mentions
+      "hrsh7th/nvim-cmp",            -- autocompletion for avante commands and mentions
       "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
-      "zbirenbaum/copilot.lua", -- for providers='copilot'
+      "zbirenbaum/copilot.lua",      -- for providers='copilot'
       {
         -- support for image pasting
         "HakonHarnes/img-clip.nvim",
@@ -88,7 +88,7 @@ return {
   },
 
   -- disable trouble
-  { "folke/trouble.nvim", enabled = false },
+  { "folke/trouble.nvim",                             enabled = false },
 
   -- override nvim-cmp and add cmp-emoji
   {
@@ -144,7 +144,7 @@ return {
       init = function()
         require("lazyvim.util").lsp.on_attach(function(_, buffer)
           -- stylua: ignore
-          vim.keymap.set( "n", "<leader>co", "TypescriptOrganizeImports", { buffer = buffer, desc = "Organize Imports" })
+          vim.keymap.set("n", "<leader>co", "TypescriptOrganizeImports", { buffer = buffer, desc = "Organize Imports" })
           vim.keymap.set("n", "<leader>cR", "TypescriptRenameFile", { desc = "Rename File", buffer = buffer })
         end)
       end,
