@@ -1,6 +1,6 @@
 -- since this is just an example spec, don't actually load anything here and return an empty spec
 -- stylua: ignore
-if true then return {} end
+-- if true then return {} end
 
 -- every spec file under the "plugins" directory will be loaded automatically by lazy.nvim
 --
@@ -16,7 +16,16 @@ return {
     lazy = false,
     version = false, -- set this if you want to always pull the latest change
     opts = {
-      -- add any opts here
+      -- add any opts here  
+      provider = "gemini", 
+      gemini = {
+        endpoint = "https://generativelanguage.googleapis.com/v1beta/models",
+        model = "gemini-2.0-flash", -- 您想要的模型（或使用 gpt-4o 等）
+        timeout = 30000, -- 超时时间（毫秒），增加此值以适应推理模型
+        temperature = 0,
+        max_tokens = 8192, -- 增加此值以包括推理模型的推理令牌
+        --reasoning_effort = "medium", -- low|medium|high，仅用于推理模型
+      },
     },
     -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
     build = "make",
@@ -59,12 +68,6 @@ return {
 
   --add wakatime
   { "wakatime/vim-wakatime", lazy = false },
-
-  -- add codeium
-  {
-    "Exafunction/codeium.vim",
-    event = "BufEnter",
-  },
 
   -- add gruvbox
   { "folke/tokyonight.nvim" },
